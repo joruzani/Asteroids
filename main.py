@@ -1,6 +1,8 @@
 import pygame
 from constants import *
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 def main():
     pygame.init()
@@ -14,7 +16,11 @@ def main():
     y = SCREEN_HEIGHT / 2
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroid_group = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
+    Asteroid.containers = (asteroid_group, updatable, drawable)
+    AsteroidField.containers = (updatable)
+    asteroid_field = AsteroidField()
     player = Player(x, y)
     while(True):
         for event in pygame.event.get():
