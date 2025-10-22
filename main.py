@@ -39,7 +39,7 @@ def main():
         for a in asteroid_group:
             for b in shots:
                 if b.check_collision(a):
-                    a.kill()
+                    a.split()
                     b.kill()
         for d in drawable:
             d.draw(screen)
